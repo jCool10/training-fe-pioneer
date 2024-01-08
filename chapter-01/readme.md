@@ -360,3 +360,287 @@ for (let i = 0; i <= 5; i++) {
 
 // 0 1 2 4 5
 ```
+
+### 2.4. Hàm
+
+#### 2.4.1. Declaration function
+
+```js
+//declaring a function without a parameter
+function functionName() {
+  // code goes here
+}
+functionName(); // calling function by its name and with parentheses
+
+// Hàm trả về (Function returning value)
+function addTwoNumbers() {
+  let numOne = 2;
+  let numTwo = 3;
+  let total = numOne + numTwo;
+  return total;
+}
+console.log(addTwoNumbers());
+
+// Hàm có tham số (Function with a parameter)
+function areaOfCircle(r) {
+  let area = Math.PI * r * r;
+  return area;
+}
+console.log(areaOfCircle(10));
+
+function sumTwoNumbers(numOne, numTwo) {
+  let sum = numOne + numTwo;
+  return sum;
+}
+console.log(sumTwoNumbers(10, 20));
+```
+
+#### 2.4.2. Anonymous function
+
+Là hàm khi khởi tạo không cần tên
+
+```js
+const anonymousFun = function () {
+  console.log(
+    "I am an anonymous function and my value is stored in anonymousFun"
+  );
+};
+```
+
+#### 2.4.3. Arrow function
+
+```js
+function square(n) {
+  return n * n;
+}
+
+const square = (n) => {
+  return n * n;
+};
+
+const square = (n) => n * n;
+
+console.log(square(2)); // -> 4
+```
+
+#### 2.4.4. Higher order functions (HOF)
+
+1. Callback
+
+Callback function là 1 hàm có thể truyền tham số là 1 hàm khác
+
+```js
+// a callback function, the name of the function could be any name
+const callback = (n) => {
+  return n ** 2
+}
+​
+// function that takes other function as a callback
+function cube(callback, n) {
+  return callback(n) * n
+}
+​
+console.log(cube(callback, 3))
+```
+
+2. Returning function
+
+```js
+// Higher order function returning an other function
+const numbers = [1, 2, 3, 4, 5];
+const sumArray = (arr) => {
+  let sum = 0;
+  const callback = function (element) {
+    sum += element;
+  };
+  arr.forEach(callback);
+  return sum;
+};
+console.log(sumArray(numbers)); //15
+```
+
+#### 2.4.5. Functional Programming (Lập trình hàm)
+
+1. `.forEach()`
+
+Thực hiện mỗi hành động cho mỗi phần tử trong mảng và không có gì trị trả về
+
+```js
+arr.forEach(function (element, index, arr) {
+  console.log(index, element, arr);
+});
+
+arr.forEach((element, index, arr) => {
+  console.log(index, element, arr);
+});
+
+const numbers = [1, 2, 3];
+numbers.forEach((num) => {
+  console.log(num);
+});
+// 1, 2, 3
+```
+
+2. `.map()`
+
+Tương tự `.forEach()` tuy nhiên, sẽ có giá trị trả về.
+
+```js
+const numbers = [1, 2, 3];
+const doubled = numbers.map((num) => num * 2); // [2, 4, 6]
+```
+
+3. `.filter()`
+
+Lọc và tạo ra 1 mảng mới thõa mãn điều kiện đưa ra
+
+```js
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 10];
+const newNumbers = numbers.filter((number) => number % 2 == 0 && number > 5);
+console.log(newNumbers);
+// [ 6, 8, 10 ]
+```
+
+4. `.reduce()`
+
+Một công cụ mạnh mẽ và linh hoạt cho phép bạn tính toán một giá trị duy nhất từ một mảng các giá trị.
+
+```js
+arr.reduce((acc, cur) => {
+  // some operations goes here before returning a value
+  return;
+}, initialValue);
+
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  0
+);
+console.log(sum); // 15
+
+const cart = [
+  {
+    product: {
+      name: "Ao",
+      price: 10,
+    },
+    buy_count: 2,
+  },
+  {
+    product: {
+      name: "Quan",
+      price: 15,
+    },
+    buy_count: 8,
+  },
+  {
+    product: {
+      name: "Mu",
+      price: 50,
+    },
+    buy_count: 1,
+  },
+];
+
+const total = cart.reduce((result, current) => {
+  return result + current.product.price * current.buy_count;
+}, 0);
+
+console.log(total); //190
+```
+
+5. `.every()`
+
+Kiểm tra xem thử tất cả các phần từ trong mảng có thõa mãn một điều kiện nào đó không. Nếu tất cả thõa mãn thì trả về `true`, nếu 1 phần từ sai thì trả về `false`
+
+```js
+const names = ["Pioneer", "DUT", "ETE"];
+const areAllStr = names.every((name) => typeof name === "string"); // Are all strings?
+
+console.log(areAllStr); //true
+
+const names = ["Pioneer", "DUT", "ETE", 2023];
+const areAllStr = names.every((name) => typeof name === "string"); // Are all strings?
+
+console.log(areAllStr); //false
+```
+
+6. `.find()`
+
+Trả về phần tử đầu tiên thõa mãn điều kiện
+
+```js
+const ages = [24, 22, 25, 32, 35, 18];
+const age = ages.find((age) => age < 30);
+
+console.log(age); // 24
+```
+
+7. `.findIndex()`
+
+Tương tự như `.find()`, nhưng sẽ trả về index (vị trí) của phần từ vừa tìm được.
+
+```js
+const ages = [24, 22, 25, 32, 35, 18];
+const age = ages.findIndex((age) => age < 20);
+console.log(age); // 5
+```
+
+8. `.some()`
+
+Ngược lại với `.every()`, `.some()`, chỉ cần 1 phần tử thõa mãn điều kiện thì sẽ trả về `true`, không thõa mãn với tất cả phần tử thì sẽ trả về `false`.
+
+```js
+const bools = [true, false, false, true];
+
+const areSomeTrue = bools.some((b) => b === true);
+
+console.log(areSomeTrue); //true
+```
+
+9.  `.sort()`
+
+Sắp xếp thử tự trong mảng theo thứ tự tăng dần hoặc giảm dần
+
+```js
+//Sorting string values
+const products = ["Milk", "Coffee", "Sugar", "Honey", "Apple", "Carrot"];
+console.log(products.sort()); // ['Apple', 'Carrot', 'Coffee', 'Honey', 'Milk', 'Sugar']
+
+// Sorting Numeric values
+const numbers = [9.81, 3.14, 100, 37];
+// Using sort method to sort number items provide a wrong result.
+console.log(numbers.sort()); //[100, 3.14, 37, 9.81]
+numbers.sort(function (a, b) {
+  return a - b;
+});
+
+console.log(numbers); // [3.14, 9.81, 37, 100]
+
+numbers.sort(function (a, b) {
+  return b - a;
+});
+console.log(numbers); //[100, 37, 9.81, 3.14]
+
+// Sorting Object Arrays
+const users = [
+  { name: "Asabeneh", age: 150 },
+  { name: "Brook", age: 50 },
+  { name: "Eyob", age: 100 },
+  { name: "Elias", age: 22 },
+];
+users.sort((a, b) => {
+  if (a.age < b.age) return -1;
+  if (a.age > b.age) return 1;
+  return 0;
+});
+console.log(users);
+/*
+[
+  { name: 'Elias', age: 22 },
+  { name: 'Brook', age: 50 },
+  { name: 'Eyob', age: 100 },
+  { name: 'Asabeneh', age: 150 }
+]
+*/
+```
