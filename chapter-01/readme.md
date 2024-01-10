@@ -768,3 +768,109 @@ const callback = (err, result) => {
 
 doSomething(callback);
 ```
+
+#### 2.6.1. Promise
+
+Promise trong JavaScript là một cơ chế để xử lý các hoạt động bất đồng bộ một cách linh hoạt hơn so với các hàm gọi lại (callbacks) truyền thống. Một Promise đại diện cho một giá trị chưa được biết đến khi nó được tạo, nhưng hứa hẹn sẽ cung cấp một giá trị vào một thời điểm nào đó trong tương lai.
+
+```js
+// syntax
+const promise = new Promise((resolve, reject) => {
+  resolve("success");
+  reject("failure");
+});
+promise
+  .then((value) => {
+    // Xử lý kết quả thành công
+  })
+  .catch((error) => {
+    // Xử lý kết quả thất bại
+  });
+
+// Promise
+const doPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const skills = ["HTML", "CSS", "JS"];
+    if (skills.length > 0) {
+      resolve(skills);
+    } else {
+      reject("Something wrong has happened");
+    }
+  }, 2000);
+});
+
+doPromise
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => console.log(error));
+// ["HTML", "CSS", "JS"]
+
+// Promise
+const doPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const skills = ["HTML", "CSS", "JS"];
+    if (skills.includes("Node")) {
+      resolve("fullstack developer");
+    } else {
+      reject("Something wrong has happened");
+    }
+  }, 2000);
+});
+
+doPromise
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => console.error(error));
+// Something wrong has happened
+```
+
+#### 2.6.2. Fetch API
+
+Fetch API trong JavaScript là một cách hiện đại và mạnh mẽ để thực hiện các yêu cầu HTTP (như GET, POST, PUT, DELETE, v.v.) từ máy chủ web.
+
+HTTP Method:
+
+- GET: Dùng để yêu cầu dữ liệu từ một nguồn đã chỉ định.
+- POST: Dùng để gửi dữ liệu đến máy chủ để tạo hoặc cập nhật tài nguyên.
+- PUT: Dùng để gửi dữ liệu đến máy chủ để tạo mới hoặc thay thế một tài nguyên hiện có.
+- DELETE: Dùng để xóa tài nguyên đã chỉ định.
+
+```js
+fetch("https://api.example.com/data")
+  .then((response) => response.json()) // Chuyển đổi dữ liệu nhận được thành JSON
+  .then((data) => console.log(data)) // Xử lý dữ liệu JSON
+  .catch((error) => console.error("Error:", error)); // Xử lý lỗi
+
+fetch("https://api.example.com/submit", {
+  method: "POST", // Phương thức HTTP
+  headers: {
+    "Content-Type": "application/json", // Loại nội dung
+    // Các header khác nếu cần
+  },
+  body: JSON.stringify({ key: "value" }), // Dữ liệu được gửi
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error("Error:", error));
+```
+
+#### 2.6.3. Async và Await
+
+Đây là 1 cách để xử lí Promise dễ hiểu và dễ viết
+
+```js
+const url = "https://api.example.com/submit";
+const fetchData = async () => {
+  try {
+    const response = await fetch(url);
+    const countries = await response.json();
+    console.log(countries);
+  } catch (err) {
+    console.error(err);
+  }
+};
+console.log("===== async and await");
+fetchData();
+```

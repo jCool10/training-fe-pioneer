@@ -1,12 +1,12 @@
-const PI = Math.PI;
+// const PI = Math.PI;
 
-console.log(PI);
+// console.log(PI);
 
-let space = " "; // chuỗi rỗng
-let firstName = "Pioneer ";
-let lastName = "Club";
+// let space = " "; // chuỗi rỗng
+// let firstName = "Pioneer ";
+// let lastName = "Club";
 
-const string = "    Pioneer    Cl  ub  ";
+// const string = "    Pioneer    Cl  ub  ";
 
 // console.log(firstName.toLowerCase());
 
@@ -81,12 +81,12 @@ const string = "    Pioneer    Cl  ub  ";
 
 // console.log(addNumber(2, 3));
 
-function addNumber(a, b) {
-  console.log("Tong cua 2 so la: " + a + " va " + b + " la: " + (a + b));
+// function addNumber(a, b) {
+//   console.log("Tong cua 2 so la: " + a + " va " + b + " la: " + (a + b));
 
-  console.log(`Tong cua 2 so la: ${a}  va ${b} la: ${a + b} `);
-  return a + b;
-}
+//   console.log(`Tong cua 2 so la: ${a}  va ${b} la: ${a + b} `);
+//   return a + b;
+// }
 
 // addNumber(2, 3);
 
@@ -103,13 +103,13 @@ function addNumber(a, b) {
 // anonymousFun();
 
 // a callback function, the name of the function could be any name
-const callback = (n) => {
-  return n ** 3;
-};
+// const callback = (n) => {
+//   return n ** 3;
+// };
 
-// function that takes other function as a callback
-function cube(func, n) {
-  return func(n) * n;
-}
+// // function that takes other function as a callback
+// function cube(func, n) {
+//   return func(n) * n;
+// }
 
-console.log(cube(callback, 3));
+// console.log(cube(callback, 3));
