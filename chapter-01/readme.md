@@ -644,3 +644,127 @@ console.log(users);
 ]
 */
 ```
+
+### 2.5. Destructuring và Spreading
+
+#### 2.5.1. Destructuring
+
+Destructuring cho phép trích xuất các giá trị từ một mảng hoặc đối tượng vào các biến riêng lẻ một cách dễ dàng.
+
+1. Destructing Arrays
+
+```js
+const numbers = [1, 2, 3];
+let [numOne, numTwo, numThree] = numbers;
+
+console.log(numOne, numTwo, numThree); //  1 2 3
+
+const names = ["Asabeneh", "Brook", "David", "John"];
+let [firstPerson, secondPerson, thirdPerson, fourthPerson] = names;
+
+console.log(firstPerson, secondPerson, thirdPerson, fourthPerson); //Asabeneh Brook David John
+
+const fullStack = [
+  ["HTML", "CSS", "JS", "React"],
+  ["Node", "Express", "MongoDB"],
+];
+const [frontEnd, backEnd] = fullStack;
+
+console.log(frontEnd); //["HTML", "CSS", "JS", "React"]
+console.log(backEnd); //["Node", "Express", "MongoDB"]
+
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let [num1, num2, num3, ...rest] = nums
+​
+console.log(num1, num2, num3) // 1 2 3
+console.log(rest) // [4, 5, 6, 7, 8, 9, 10]
+
+
+```
+
+2. Destructing Objects
+
+```js
+const rectangle = {
+  width: 20,
+  height: 10,
+  area: 200,
+};
+let { width, height, area, perimeter } = rectangle;
+
+console.log(width, height, area, perimeter); //20 10 200 undefined
+
+const calculatePerimeter = ({ width, height }) => {
+  return 2 * (width + height);
+};
+
+console.log(calculatePerimeter({ width: 30, height: 20 })); // 100
+```
+
+#### 2.5.1. Spreading
+
+1. Arrays
+
+```js
+const evens = [0, 2, 4, 6, 8, 10];
+const evenNumbers = [...evens];
+
+const odds = [1, 3, 5, 7, 9];
+const oddNumbers = [...odds];
+
+const wholeNumbers = [...evens, ...odds];
+
+console.log(evenNumbers); //[0, 2, 4, 6, 8, 10]
+console.log(oddNumbers);
+console.log(wholeNumbers);
+```
+
+2. Objects
+
+```js
+const user = {
+  name: "Pioneer",
+  title: "Programmer",
+  country: "Viet Nam",
+  city: "Da Nang",
+};
+
+const copiedUser1 = { ...user };
+const copiedUser2 = { ...user, title: "Club" };
+console.log(copiedUser1); //{name: "Pioneer",title: "Programmer",country: "Viet Nam",city: "Da Nang"};
+console.log(copiedUser2); //{name: "Pioneer",title: "Club",country: "Viet Nam",city: "Da Nang"};
+
+const sumAllNums = (...args) => {
+  console.log(args);
+};
+
+sumAllNums(1, 2, 3, 4, 5); //[1, 2, 3, 4, 5]
+```
+
+### 2.6. Callbacks Function
+
+Một hàm gọi lại là một hàm được truyền như một đối số vào hàm khác. Sau khi thực hiện một số xử lý, hàm này sẽ được gọi bởi hàm mà nó được truyền vào.
+
+Mục đích Sử Dụng:
+
+- Xử lý Bất đồng bộ: Trong các hoạt động như yêu cầu mạng, đọc/ghi file, hoặc bất kỳ hoạt động nào mà kết quả không có ngay lập tức, callback được sử dụng để xử lý kết quả sau khi hoạt động hoàn thành.
+- Tùy chỉnh Hành vi: Trong các tình huống như sắp xếp, lọc, hoặc biến đổi dữ liệu, callback cho phép người dùng định nghĩa logic cụ thể.
+
+```js
+//Callback
+const doSomething = (callback) => {
+  setTimeout(() => {
+    const skills = ["HTML", "CSS", "JS"];
+    callback("It did not go well", skills);
+  }, 2000);
+};
+
+const callback = (err, result) => {
+  if (err) {
+    return console.log(err);
+  }
+  return console.log(result);
+};
+
+doSomething(callback);
+```
