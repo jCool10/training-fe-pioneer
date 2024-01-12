@@ -19,7 +19,7 @@ BT Tổng hợp
 
 Yêu Cầu: Bạn có một mảng các đối tượng người dùng, với mỗi người dùng có các thuộc tính: name, age, và score. Hãy thực hiện các nhiệm vụ sau:
 
-1. Lọc ra người dùng trên 18 tuổi.
+1. Lọc ra người dùng trên 18 tuổi. (.filter())
 2. Tính điểm trung bình của người dùng trên 18 tuổi.
 3. Tính điểm trung bình của người dùng trên 22 tuổi và điểm trên 80.
 4. Tìm người dùng có điểm cao nhất và trả về tên của họ.

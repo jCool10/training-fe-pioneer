@@ -33,3 +33,4 @@ v20.10.0
 | Chương | Nội dung                                     |
 | ------ | -------------------------------------------- |
 | 1      | [JavaScript cơ bản ](./chapter-01/readme.md) |
+| 2      | [HTML cơ bản](./chapter-02/Readme.md)        |

@@ -874,3 +874,37 @@ const fetchData = async () => {
 console.log("===== async and await");
 fetchData();
 ```
+
+### 2.7. Event Listeners
+
+```js
+selectedElement.addEventListener("eventlistner", function (e) {
+  // the activity you want to occur after the event will be in here
+});
+// or
+
+selectedElement.addEventListener("eventlistner", (e) => {
+  // the activity you want to occur after the event will be in here
+});
+```
+
+1. click: khi nhấp chuột vào phần tử.
+2. dblclick: khi nhấp đúp chuột vào phần tử.
+3. mouseenter: khi con trỏ chuột đi vào phần tử.
+4. mouseleave: khi con trỏ chuột rời khỏi phần tử.
+5. mousemove: khi con trỏ chuột di chuyển trên phần tử.
+6. mouseover: khi con trỏ chuột di chuyển đến phần tử.
+7. mouseout: khi con trỏ chuột di chuyển ra khỏi phần tử.
+8. input: khi giá trị được nhập vào trường nhập liệu.
+9. change: khi giá trị thay đổi trên trường nhập liệu.
+10. blur: khi phần tử không còn được tập trung.
+11. keydown: khi một phím được nhấn xuống.
+12. keyup: khi một phím được thả lên.
+13. keypress: khi một phím bất kỳ được nhấn.
+14. onload: khi trình duyệt đã hoàn thành việc tải trang.
+
+## 3. Tài liệu tham khảo
+
+> - [MDN Web Docs JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)
+>
+> - [w3schools](https://www.w3schools.com/js/)

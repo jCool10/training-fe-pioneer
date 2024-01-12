@@ -113,3 +113,99 @@
 // }
 
 // console.log(cube(callback, 3));
+// const numbers = [1, 2, 3];
+// numbers.forEach((num, index, array) => {
+//   console.log(num);
+//   console.log(index);
+//   console.log(array);
+// });
+
+// const numberNew = numbers.map((num, index, array) => {
+//   return num * 2;
+// });
+
+// console.log(numberNew);
+
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 10];
+// const newNumbers = numbers.filter((number) => {
+//   return number % 2 != 0 && number > 5;
+// });
+// console.log(newNumbers);
+
+// arr.reduce((acc, cur) => {
+//   // some operations goes here before returning a value
+//   return;
+// }, initialValue);
+
+// const numbers = [1, 2, 3, 4, 5];
+// const sum = numbers.reduce((sum, currentValue) => sum + currentValue, 0);
+// console.log(sum);
+
+// const cart = [
+//   {
+//     product: {
+//       name: "Ao",
+//       price: 10,
+//     },
+//     buy_count: 2,
+//   },
+//   {
+//     product: {
+//       name: "Quan",
+//       price: 15,
+//     },
+//     buy_count: 8,
+//   },
+//   {
+//     product: {
+//       name: "Mu",
+//       price: 50,
+//     },
+//     buy_count: 1,
+//   },
+// ];
+
+// const total = cart.reduce((result, current) => {
+//   return result + current.product.price * current.buy_count;
+// }, 0);
+
+// console.log(total); //190
+
+// const ages = [24, 22, 25, 32, 35, 18];
+// const age = ages.find((age) => age < 30);
+
+// console.log(age);
+// const users = [
+//   { firstName: "Pioneer", lastName: "Club" },
+//   { firstName: "ETE", lastName: "DUT" },
+// ];
+
+// // const newUsers = users.map((user, index) => {
+// //   const string = user.firstName + " " + user.lastName;
+// //   return string;
+// //   // user[i].firstName + " " + user[i].lastName
+// // });
+
+// const newUser = users.map((user) => `${user.firstName} ${user.lastName}`);
+
+// console.log(newUser);
+
+const numbers = [1, 4, 3, 6, 3, 6, 8, 11, 4, 6];
+
+// const average =
+//   numbers.reduce((sum, current) => sum + current, 0) / numbers.length;
+
+var sum = 0;
+for (let i = 0; i < numbers.length; i++) {
+  sum += numbers[i];
+}
+
+console.log(sum);
+
+// const sum = numbers.reduce((sum, current) => sum + current);
+
+// const length = numbers.length;
+
+// const average = sum / length;
+
+// console.log(average);
