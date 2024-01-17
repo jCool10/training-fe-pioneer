@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Floats  */
+      .container {
+        width: 100%;
+      }
+      .left-column {
+        float: left;
+        width: 30%;
+      }
+      .right-column {
+        float: right;
+        width: 70%;
+      }
+      /* Clearfix to clear the floats */
+      .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floats  -->
+    <div class="container clearfix">
+      <div class="left-column">Left Column</div>
+      <div class="right-column">Right Column</div>
+    </div>
+  </body>
+</html>

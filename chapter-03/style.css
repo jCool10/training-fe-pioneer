@@ -1,0 +1,147 @@
+.box {
+  width: 400px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 15px;
+}
+
+.positioning .container {
+  /* width: 500px; */
+  height: 500px;
+  position: relative; /* Parent container must be relative for absolute positioning */
+  background-color: lightgray;
+}
+.positioning .static-box {
+  position: static;
+  background-color: lightblue;
+  padding: 10px;
+}
+.positioning .relative-box {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  background-color: lightgreen;
+  padding: 10px;
+}
+.positioning .absolute-box {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  background-color: lightcoral;
+  padding: 10px;
+}
+.positioning .fixed-box {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: lightpink;
+  padding: 10px;
+}
+.positioning .sticky-box {
+  position: sticky;
+  top: 10px; /* Distance from the top when scrolling */
+  background-color: lightgoldenrodyellow;
+  padding: 10px;
+}
+
+.layouts .float .container {
+  width: 100%;
+}
+.layouts .float .left-column {
+  float: left;
+  width: 30%;
+}
+.layouts .float .right-column {
+  float: right;
+  width: 70%;
+}
+/* Clearfix to clear the floats */
+.layouts .float .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.layouts .flexbox .flex-container {
+  display: flex;
+}
+
+.layouts .flexbox .flex-container .flex-item {
+  flex: 1; /* Grow to fill available space */
+}
+
+.grid .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto; /* Three columns */
+  gap: 10px;
+}
+.grid .grid-container .grid-item {
+  background-color: lightgray;
+  padding: 20px;
+  text-align: center;
+}
+
+.responsive {
+  background-color: lightblue;
+}
+
+/* Style khi màn hình có chiều rộng nhỏ hơn 600px */
+@media screen and (max-width: 600px) {
+  .responsive {
+    background-color: lightblue;
+  }
+}
+
+/* Style khi màn hình có chiều rộng từ 600px đến 1200px */
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+  .responsive {
+    background-color: coral;
+  }
+}
+
+/* Style khi màn hình có chiều rộng lớn hơn 1200px */
+@media screen and (min-width: 1200px) {
+  .responsive {
+    background-color: lightgreen;
+  }
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: width 2s, background 2s, transform 2s;
+
+  /* transition: all 2s ; */
+}
+
+.box:hover {
+  width: 200px;
+  background: blue;
+  transform: rotate(45deg);
+}
+
+@keyframes example {
+  0% {
+    background-color: red;
+  }
+  25% {
+    background-color: yellow;
+  }
+  50% {
+    background-color: blue;
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+.animate {
+  width: 100px;
+  height: 100px;
+  background: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}

@@ -34,3 +34,4 @@ v20.10.0
 | ------ | -------------------------------------------- |
 | 1      | [JavaScript cơ bản ](./chapter-01/readme.md) |
 | 2      | [HTML cơ bản](./chapter-02/Readme.md)        |
+| 3      | [CSS cơ bản](./chapter-03/Readme.md)         |

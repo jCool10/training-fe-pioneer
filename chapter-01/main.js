@@ -190,17 +190,17 @@
 
 // console.log(newUser);
 
-const numbers = [1, 4, 3, 6, 3, 6, 8, 11, 4, 6];
+// const numbers = [1, 4, 3, 6, 3, 6, 8, 11, 4, 6];
 
-// const average =
-//   numbers.reduce((sum, current) => sum + current, 0) / numbers.length;
+// // const average =
+// //   numbers.reduce((sum, current) => sum + current, 0) / numbers.length;
 
-var sum = 0;
-for (let i = 0; i < numbers.length; i++) {
-  sum += numbers[i];
-}
+// var sum = 0;
+// for (let i = 0; i < numbers.length; i++) {
+//   sum += numbers[i];
+// }
 
-console.log(sum);
+// console.log(sum);
 
 // const sum = numbers.reduce((sum, current) => sum + current);
 
@@ -209,3 +209,106 @@ console.log(sum);
 // const average = sum / length;
 
 // console.log(average);
+
+// const numbers = [1, 2, 3];
+// let [numOne, numTwo] = numbers;
+
+// console.log(numbers[1]);
+
+// console.log(numTwo);
+
+// const func = ({ a, b, c }) => {
+//   console.log(a, b, c);
+// };
+
+// func({ a: 1, c: 6, b: 4 });
+
+// const user = {
+//   name: "Pioneer",
+//   title: "Programmer",
+//   country: "Viet Nam",
+//   city: "Da Nang",
+// };
+
+// const user2 = { ...user, title: "ete", time: "123" };
+
+// console.log(user2);
+
+// const sumAllNums = (...args) => {
+//   console.log(args);
+// };
+
+// sumAllNums(1, 2, 3, 4, 5);
+
+// const promise = new Promise((resolve, reject) => {
+//   resolve("success");
+//   reject("failure");
+// });
+// promise
+//   .then((value) => {
+//     console.log("then", value);
+//     // Xử lý kết quả thành công
+//   })
+//   .catch((error) => {
+//     console.log("catch", error);
+//     // Xử lý kết quả thất bại
+//   });
+
+// const doPromise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     const skills = ["HTML", "CSS", "JS"];
+//     if (skills.includes("Node")) {
+//       resolve("fullstack developer");
+//     } else {
+//       reject("Something wrong has happened");
+//     }
+//   }, 5000);
+// });
+
+// doPromise
+//   .then((result) => {
+//     console.log(result);
+//   })
+//   .catch((error) => console.log(error));
+
+// // CRUD: Create - read - update - delete;
+
+// // fetch();
+
+// fetch("https://restcountries.com/v2/all")
+//   .then((response) => response.json()) // Chuyển đổi dữ liệu nhận được thành JSON
+//   .then((data) => console.log(data)) // Xử lý dữ liệu JSON
+//   .catch((error) => console.error("Error:", error));
+
+// fetch("https://api.example.com/submit", {
+//   method: "POST", // Phương thức HTTP
+//   headers: {
+//     "Content-Type": "application/json", // Loại nội dung
+//     // Các header khác nếu cần
+//   },
+//   body: JSON.stringify({ key: "value" }), // Dữ liệu được gửi
+// })
+//   .then((response) => response.json())
+//   .then((data) => console.log(data))
+//   .catch((error) => console.error("Error:", error));
+
+const url = "https://restcountries.com/v2/all";
+const fetchData = async () => {
+  try {
+    console.log(1);
+    const response = await fetch(url);
+    console.log(2);
+    const countries = await response.json();
+    console.log(3);
+    console.log(countries);
+  } catch (err) {
+    console.error(err);
+  }
+};
+console.log("===== async and await");
+fetchData();
+
+fetch("https://api.example.com/data")
+  .then((response) => response.json()) // Chuyển đổi dữ liệu nhận được thành JSON
+  .then((data) => console.log(data)) // Xử lý dữ liệu JSON
+  .catch((error) => console.error("Error:", error)); // Xử lý lỗi
