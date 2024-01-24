@@ -54,6 +54,47 @@ npm run dev
 const element = <h1>Hello, world!</h1>;
 ```
 
+### Import và Export trong JS
+
+1. Export
+
+Export trong JavaScript có hai loại phổ biến là **named** and **default**.
+
+1.1. Named Export
+
+Trong JavaScript ES6, `named export` được sử dụng để xuất nhiều thứ từ một module bằng cách thêm keyword export vào khai báo của chúng. Những thứ được export sẽ được phân biệt bằng tên. Sau đó import những thứ chúng ta cần sử dụng bằng cách bao quanh chúng cặp dấu ngoặc nhọn `{ }`. Tên của module đã nhập phải giống với tên của module đã xuất.
+
+```js
+export function addTwoNumbers(x, y) {
+  return x + y;
+}
+export let students = ["wisdom", "bill", "fred", "grim"];
+```
+
+1.2. Default Export
+
+Default Export trong Javascript ES6 chỉ cho phép xuất một mặc định cho mỗi file. Default Export có thể cho một function, class hoặc một object.
+
+```js
+export default function () {
+  alert("Hello Default Export");
+}
+```
+
+2. Import
+
+```js
+// Export default
+import name from "module-name";
+
+// Named Export
+import { module1, module2 } from "module-name";
+
+// Importing with alias
+
+import * as util from "util";
+```
+
 ### 3.2. Component trong React
 
 Trong React, **component** là một phần cơ bản của việc xây dựng giao diện người dùng. Component là các khối xây dựng độc lập và có thể tái sử dụng trong ứng dụng React. Chúng giúp tách biệt logic và giao diện người dùng, làm cho mã nguồn dễ dàng quản lý và phát triển.
