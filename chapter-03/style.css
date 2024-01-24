@@ -10,6 +10,7 @@
   height: 500px;
   position: relative; /* Parent container must be relative for absolute positioning */
   background-color: lightgray;
+  width: 100%;
 }
 .positioning .static-box {
   position: static;
@@ -20,6 +21,8 @@
   position: relative;
   top: 20px;
   left: 30px;
+  right: 20px;
+  /* bottom: -50px; */
   background-color: lightgreen;
   padding: 10px;
 }
@@ -39,13 +42,15 @@
 }
 .positioning .sticky-box {
   position: sticky;
-  top: 10px; /* Distance from the top when scrolling */
+  top: 100px; /* Distance from the top when scrolling */
+  bottom: 20px;
   background-color: lightgoldenrodyellow;
   padding: 10px;
 }
 
 .layouts .float .container {
-  width: 100%;
+  /* width: 100%; */
+  width: 500px;
 }
 .layouts .float .left-column {
   float: left;
@@ -64,6 +69,7 @@
 
 .layouts .flexbox .flex-container {
   display: flex;
+  /* flex-direction: ; */
 }
 
 .layouts .flexbox .flex-container .flex-item {
@@ -73,8 +79,15 @@
 .grid .grid-container {
   display: grid;
   grid-template-columns: auto auto auto; /* Three columns */
+  /* grid-template-rows: ; */
   gap: 10px;
 }
+/* Note */
+
+.bg-lightgray {
+  background-color: lightgray;
+}
+
 .grid .grid-container .grid-item {
   background-color: lightgray;
   padding: 20px;
@@ -85,8 +98,19 @@
   background-color: lightblue;
 }
 
+body {
+  font-size: 62.5%;
+}
+
+.responsive .h1 {
+  font-size: 2rem;
+}
+
 /* Style khi màn hình có chiều rộng nhỏ hơn 600px */
 @media screen and (max-width: 600px) {
+  body {
+    font-size: 10px;
+  }
   .responsive {
     background-color: lightblue;
   }
@@ -94,6 +118,9 @@
 
 /* Style khi màn hình có chiều rộng từ 600px đến 1200px */
 @media screen and (min-width: 600px) and (max-width: 1200px) {
+  body {
+    font-size: 10px;
+  }
   .responsive {
     background-color: coral;
   }
@@ -101,6 +128,9 @@
 
 /* Style khi màn hình có chiều rộng lớn hơn 1200px */
 @media screen and (min-width: 1200px) {
+  body {
+    font-size: 10px;
+  }
   .responsive {
     background-color: lightgreen;
   }
@@ -111,8 +141,6 @@
   height: 100px;
   background: red;
   transition: width 2s, background 2s, transform 2s;
-
-  /* transition: all 2s ; */
 }
 
 .box:hover {
@@ -125,6 +153,7 @@
   0% {
     background-color: red;
   }
+  /* rgb() */
   25% {
     background-color: yellow;
   }
@@ -141,7 +170,60 @@
   height: 100px;
   background: red;
   animation-name: example;
-  animation-duration: 4s;
+  animation-duration: 8s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+}
+
+/*  */
+
+div {
+}
+
+#box-id {
+}
+
+.class {
+}
+
+[type="text"] {
+}
+
+span:hover {
+  background: #000;
+}
+
+input::first-letter {
+}
+
+.ul-1 > li {
+  background: yellow;
+}
+
+h1 + h2 + h3 {
+}
+
+h1 {
+}
+h2 {
+}
+
+h3 {
+}
+
+p:nth-child(1) {
+  color: antiquewhite;
+}
+
+p:nth-child(2) {
+}
+
+/* 1rem = 16px */
+
+body {
+  font-size: 16px;
+}
+
+.h1 {
+  font-size: 1rem; /*16px*/
 }
